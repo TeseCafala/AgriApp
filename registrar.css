@@ -1,0 +1,452 @@
+/* Google Fonts - Poppins for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Basic Resets and Variables (Consistent with login.css) */
+:root {
+    --primary-color: #4CAF50; /* AgriApp green */
+    --secondary-color: #2E7D32; /* Darker green */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --light-bg: #f8f8f8;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-bg);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* Container for the whole registration page */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    max-height: 650px; /* Slightly taller for more fields */
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    overflow: hidden;
+    background-color: var(--white);
+}
+
+/* Left side (Registration Form) */
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.left form {
+    width: 100%;
+    max-width: 380px; /* Slightly wider for more content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left h1 {
+    font-size: 2.2rem; /* Slightly smaller to fit */
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+    font-weight: 700;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.2rem; /* Less space between inputs than login */
+}
+
+.input-container i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.input-container input::placeholder {
+    color: var(--text-light);
+}
+
+.input-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Role Selection Specific Styling */
+.role-selection {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: left; /* Align label to the left */
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.role-selection label {
+    margin-bottom: 0.5rem;
+    display: block; /* Make label appear above radio group */
+}
+
+.role-selection .radio-group {
+    display: flex;
+    gap: 1rem; /* Space between radio options */
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    display: none; /* Hide default radio button */
+}
+
+.radio-group label {
+    display: inline-flex; /* Align label with custom radio */
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* Pill shape */
+    transition: background-color var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 0; /* Override previous label margin */
+}
+
+.radio-group input[type="radio"]:checked + label {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+.radio-group label:hover {
+    background-color: var(--light-bg);
+    border-color: var(--primary-color);
+}
+.radio-group input[type="radio"]:checked + label:hover {
+    background-color: var(--secondary-color); /* Darker green on hover for checked */
+    border-color: var(--secondary-color);
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    margin-top: 0.5rem; /* Space above button */
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Adjusted .terms for stacked labels */
+.terms {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack labels vertically */
+    gap: 0.5rem; /* Space between the two labels */
+}
+
+.terms label a {
+    font-weight: 600; /* Make links stand out more */
+}
+
+/* Right side (Background Image and Slogan - Consistent with login.css) */
+.right {
+    flex: 1;
+    background-image: url('agricultore3.jpg'); /* This path assumes registrar.css is in the same directory as agricultore3.jpg */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+/* Overlay for background image */
+.right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.lema {
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+}
+
+.lema h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    color: var(--white);
+}
+
+/* --- Modal Styles (same as before) --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    padding-top: 60px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 30px;
+    border-radius: var(--border-radius);
+    width: 90%; /* Could be more responsive */
+    max-width: 700px; /* Max width */
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    position: relative;
+    animation: slideInTop 0.4s ease-out;
+    max-height: 80vh; /* Limit height */
+    overflow-y: auto; /* Enable scrolling for content */
+}
+
+.close-button {
+    color: var(--text-light);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.modal-content h3 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.modal-content p, .modal-content ul {
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.modal-content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        max-height: none;
+        width: 95%;
+        padding: 0;
+    }
+
+    .left, .right {
+        flex: none;
+        width: 100%;
+        max-width: none;
+    }
+
+    .right {
+        min-height: 200px;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        padding: 1.5rem;
+    }
+
+    .right::before {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .lema h1 {
+        font-size: 1.8rem;
+    }
+
+    .left {
+        padding: 1.5rem;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    .left form {
+        max-width: 400px;
+    }
+
+    .left h1 {
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+    }
+
+    .input-container {
+        margin-bottom: 1rem;
+    }
+
+    .button {
+        margin-top: 0.8rem;
+    }
+
+    .terms {
+        margin-top: 1rem;
+    }
+
+    .role-selection {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .role-selection .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .radio-group label {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+    .modal-content h3 {
+        font-size: 1rem;
+    }
+    .modal-content p, .modal-content ul {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .left h1 {
+        font-size: 2rem;
+    }
+
+    .input-container input {
+        padding: 10px 10px 10px 40px;
+        font-size: 0.95rem;
+    }
+
+    .input-container i {
+        left: 12px;
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .terms {
+        font-size: 0.9rem;
+    }
+}
